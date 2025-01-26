@@ -22,4 +22,5 @@ flutter:
 
 assets:
 - assets/decision_map.csv
+- assets/perec_map_24.csv
 

@@ -3,25 +3,38 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'node.dart';
 
-List<Node> decisionMap = [];
+List<Node> nodes = [];
+
+void loadData() async {
+  String file = "perec_map_24.csv";
+  String csvData = await rootBundle.loadString(file);
+  print(csvData);
+
+  List<String> rows = csvData.split("\n");
+
+  for (String row in rows) {
+    List<String> columns = row
+        .split(","); //1,2,-1,Go to See Mr X,Is Mr X in his office?,yes,No,1,0
+    int nodeID = int.parse(columns[0]);
+    int option1 = int.parse(columns[1]);
+    int option2 = int.parse(columns[2]);
+    String description = columns[3];
+    String question = columns[4];
+    String prompt1 = columns[5];
+    String prompt2 = columns[6];
+    int score1 = int.parse(columns[7]);
+    int score2 = int.parse(columns[8]);
+
+    Node myNode = Node(nodeID, option1, option2, description, question, prompt1,
+        prompt2, score1, score2);
+    nodes.add(myNode);
+  }
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  String csv = "decision_map.csv";
-  String fileData = await rootBundle.loadString(csv);
-  print(fileData);
-  List<String> rows = fileData.split("\n");
-
-  for (int i = 0; i < rows.length; i++) {
-    // this selects an item from row and places
-    String row = rows[i];
-    List<String> itemInRow = row.split(
-        ","); //splits the stuff into a seperate list by the comma from the node list
-    Node node =
-        Node(int.parse(itemInRow[0]), int.parse(itemInRow[1]), itemInRow[2]);
-    decisionMap.add(node);
-  }
+  //load data
+  loadData();
 
   runApp(
     const MaterialApp(
@@ -40,37 +53,38 @@ class MyFlutterApp extends StatefulWidget {
 }
 
 class MyFlutterState extends State<MyFlutterApp> {
-  late int iD;
-  late int nextID;
+  late int nodeID;
+  late int option1;
+  late int option2;
   String description = "";
+  String question = "";
+  String prompt1 = "";
+  String prompt2 = "";
+  late int score1;
+  late int score2;
 
   @override
   void initState() {
     super.initState();
     //Place code here to initilise server objects
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      //Place Cide here you want to execute immediately after
-      //The Ui is buikt
-
       setState(() {
-        Node current = decisionMap.first;
-        iD = current.iD;
-        nextID = current.nextID;
-        description = current.description;
-      });
-    });
-  }
-
-  void clickHandler() {
-    setState(() {
-      for (Node nextNode in decisionMap) {
-        if (nextNode.iD == nextID) {
-          iD = nextNode.iD;
-          nextID = nextNode.nextID;
-          description = nextNode.description;
-          break;
+        //Place Cide here you want to execute immediately after
+        //The Ui is buikt
+        Node current = nodes.first;
+        if (current != null) {
+          nodeID = current.nodeID;
+          option1 = current.option1;
+          option2 = current.option2;
+          description = current.description;
+          question = current.question;
+          prompt1 = current.prompt1;
+          prompt2 = current.prompt2;
+          score1 = current.score1;
+          score2 = current.score2;
         }
-      }
+      });
     });
   }
 
@@ -86,32 +100,6 @@ class MyFlutterState extends State<MyFlutterApp> {
           child: Stack(
             alignment: Alignment.topLeft,
             children: [
-              Align(
-                alignment: const Alignment(0.2, 0.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    clickHandler();
-                  },
-                  color: const Color(0xff3a21d9),
-                  elevation: 0,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero,
-                  ),
-                  textColor: const Color(0xfffffdfd),
-                  height: 40,
-                  minWidth: 140,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: const Text(
-                    "Click Here",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                ),
-              ),
               Align(
                 alignment: const Alignment(0.0, -0.7),
                 child: Text(
@@ -134,3 +122,30 @@ class MyFlutterState extends State<MyFlutterApp> {
     );
   }
 }
+
+       //       Align(
+    //            alignment: const Alignment(0.2, 0.0),
+     //           child: MaterialButton(
+     //             onPressed: () {
+     //               clickHandler();
+     //             },
+      //            color: const Color(0xff3a21d9),
+      //            elevation: 0,
+      //            shape: const RoundedRectangleBorder(
+       //             borderRadius: BorderRadius.zero,
+      //            ),
+      //            textColor: const Color(0xfffffdfd),
+       //           height: 40,
+       //           minWidth: 140,
+    //              padding:
+     //                 const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+   //               child: const Text(
+      //              "Click Here",
+  ///                  style: TextStyle(
+      //                fontSize: 20,
+     //                 fontWeight: FontWeight.w400,
+    //                  fontStyle: FontStyle.normal,
+    //                ),
+    //              ),
+    //            ),
+     //         ),

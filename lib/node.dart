@@ -1,6 +1,14 @@
 class Node {
-  int iD;
-  int nextID;
+  int nodeID;
+  int option1;
+  int option2;
   String description;
-  Node(this.iD, this.nextID, this.description);
+  String question;
+  String prompt1;
+  String prompt2;
+  int score1;
+  int score2;
+
+  Node(this.nodeID, this.option1, this.option2, this.description, this.question,
+      this.prompt1, this.prompt2, this.score1, this.score2);
 }
