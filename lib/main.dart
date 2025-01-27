@@ -5,7 +5,9 @@ import 'node.dart';
 
 List<Node> nodes = [];
 
-void loadData() async {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  //load data
   String file = "perec_map_24.csv";
   String csvData = await rootBundle.loadString(file);
   print(csvData);
@@ -28,19 +30,13 @@ void loadData() async {
     Node myNode = Node(nodeID, option1, option2, description, question, prompt1,
         prompt2, score1, score2);
     nodes.add(myNode);
+
+    runApp(
+      const MaterialApp(
+        home: MyFlutterApp(),
+      ),
+    );
   }
-}
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  //load data
-  loadData();
-
-  runApp(
-    const MaterialApp(
-      home: MyFlutterApp(),
-    ),
-  );
 }
 
 class MyFlutterApp extends StatefulWidget {
