@@ -12,11 +12,11 @@ void main() async {
   String csvData = await rootBundle.loadString(file);
   print(csvData);
 
-  List<String> rows = csvData.split("\n");
+  List<String> rows = csvData.split("\r\n");
 
   for (String row in rows) {
-    List<String> columns = row
-        .split(","); //1,2,-1,Go to See Mr X,Is Mr X in his office?,yes,No,1,0
+    List<String> columns = row.split(",");
+
     int nodeID = int.parse(columns[0]);
     int option1 = int.parse(columns[1]);
     int option2 = int.parse(columns[2]);
@@ -30,25 +30,25 @@ void main() async {
     Node myNode = Node(nodeID, option1, option2, description, question, prompt1,
         prompt2, score1, score2);
     nodes.add(myNode);
-
-    runApp(
-      const MaterialApp(
-        home: MyFlutterApp(),
-      ),
-    );
   }
+
+  runApp(
+    const MaterialApp(
+      home: MyFlutterFramework(),
+    ),
+  );
 }
 
-class MyFlutterApp extends StatefulWidget {
-  const MyFlutterApp({super.key});
+class MyFlutterFramework extends StatefulWidget {
+  const MyFlutterFramework({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return MyFlutterState();
+    return MyFlutterInterface();
   }
 }
 
-class MyFlutterState extends State<MyFlutterApp> {
+class MyFlutterInterface extends State<MyFlutterFramework> {
   late int nodeID;
   late int option1;
   late int option2;
