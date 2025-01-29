@@ -84,6 +84,52 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
     });
   }
 
+  void option1Handler() {
+    setState(() {
+      if (option1 == -1) {
+        description = "NAVIGATION ENDED!";
+        question = "";
+      }
+      for (Node next in nodes) {
+        if (next.nodeID == option1) {
+          nodeID = next.nodeID;
+          option1 = next.option1;
+          option2 = next.option2;
+          description = next.description;
+          question = next.question;
+          prompt1 = next.prompt1;
+          prompt2 = next.prompt2;
+          score1 = next.score1;
+          score2 = next.score2;
+          break;
+        }
+      }
+    });
+  }
+
+  void option2Handler() {
+    setState(() {
+      if (option2 == -1) {
+        description = "NAVIGATION ENDED!";
+        question = "";
+      }
+      for (Node next in nodes) {
+        if (next.nodeID == option2) {
+          nodeID = next.nodeID;
+          option1 = next.option1;
+          option2 = next.option2;
+          description = next.description;
+          question = next.question;
+          prompt1 = next.prompt1;
+          prompt2 = next.prompt2;
+          score1 = next.score1;
+          score2 = next.score2;
+          break;
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,10 +170,62 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                   ),
                 ),
               ),
+              if (option1 != -1)
+                Align(
+                  alignment: const Alignment(-0.5, 0.0),
+                  child: MaterialButton(
+                    onPressed: () {
+                      option1Handler();
+                    },
+                    color: const Color(0xff3a21d9),
+                    elevation: 0,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.zero,
+                    ),
+                    textColor: const Color(0xfffffdfd),
+                    height: 40,
+                    minWidth: 140,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    child: Text(prompt1,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                        )),
+                  ),
+                ),
+              if (option2 != -1)
+                Align(
+                  alignment: const Alignment(0.5, 0.0),
+                  child: MaterialButton(
+                    onPressed: () {
+                      option2Handler();
+                    },
+                    color: const Color(0xff3a21d9),
+                    elevation: 0,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.zero,
+                    ),
+                    textColor: const Color(0xfffffdfd),
+                    height: 40,
+                    minWidth: 140,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    child: Text(prompt2,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                        )),
+                  ),
+                ),
               Align(
-                alignment: const Alignment(-0.5, 0.0),
+                alignment: const Alignment(0.5, 0.0),
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    option2Handler();
+                  },
                   color: const Color(0xff3a21d9),
                   elevation: 0,
                   shape: const RoundedRectangleBorder(
@@ -138,7 +236,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                   minWidth: 140,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Text(prompt1,
+                  child: Text(prompt2,
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
