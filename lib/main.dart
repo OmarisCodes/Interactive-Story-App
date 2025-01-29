@@ -124,62 +124,32 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                   ),
                 ),
               ),
-            ],
-            Align(
-              alignment: const Alignment(-0.5, 0.0),
-              child: MaterialButton(
-                onPressed: () {},
-                color: const Color(0xff3a21d9),
-                elevation: 0,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
-                ),
-                textColor: const Color(0xfffffdfd),
-                height: 40,
-                minWidth: 140,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child: const Text(
-                  prompt1,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
+              Align(
+                alignment: const Alignment(-0.5, 0.0),
+                child: MaterialButton(
+                  onPressed: () {},
+                  color: const Color(0xff3a21d9),
+                  elevation: 0,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
                   ),
+                  textColor: const Color(0xfffffdfd),
+                  height: 40,
+                  minWidth: 140,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Text(prompt1,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                      )),
                 ),
               ),
-            ),
+            ],
           ),
         ),
       ),
-      //Flutter Ui Widgets Go here
     );
   }
 }
-
-       //       Align(
-    //            alignment: const Alignment(0.2, 0.0),
-     //           child: MaterialButton(
-     //             onPressed: () {
-     //               clickHandler();
-     //             },
-      //            color: const Color(0xff3a21d9),
-      //            elevation: 0,
-      //            shape: const RoundedRectangleBorder(
-       //             borderRadius: BorderRadius.zero,
-      //            ),
-      //            textColor: const Color(0xfffffdfd),
-       //           height: 40,
-       //           minWidth: 140,
-    //              padding:
-     //                 const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-   //               child: const Text(
-      //              "Click Here",
-  ///                  style: TextStyle(
-      //                fontSize: 20,
-     //                 fontWeight: FontWeight.w400,
-    //                  fontStyle: FontStyle.normal,
-    //                ),
-    //              ),
-    //            ),
-     //         ),
