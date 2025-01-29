@@ -97,7 +97,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
             alignment: Alignment.topLeft,
             children: [
               Align(
-                alignment: const Alignment(0.0, -0.7),
+                alignment: const Alignment(0.0, -0.9),
                 child: Text(
                   description,
                   textAlign: TextAlign.center,
@@ -110,7 +110,45 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                   ),
                 ),
               ),
+              Align(
+                alignment: const Alignment(0.0, -0.7),
+                child: Text(
+                  question,
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.clip,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 34,
+                    color: Color(0xffffffff),
+                  ),
+                ),
+              ),
             ],
+            Align(
+              alignment: const Alignment(-0.5, 0.0),
+              child: MaterialButton(
+                onPressed: () {},
+                color: const Color(0xff3a21d9),
+                elevation: 0,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero,
+                ),
+                textColor: const Color(0xfffffdfd),
+                height: 40,
+                minWidth: 140,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: const Text(
+                  prompt1,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
       ),
