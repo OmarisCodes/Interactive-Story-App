@@ -219,17 +219,18 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                       )
                     : SizedBox.shrink(),
               ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: image2.isNotEmpty
-                    ? Image.asset(
-                        image2,
-                        height: 40,
-                        width: MediaQuery.of(context).size.width,
-                        fit: BoxFit.cover,
-                      )
-                    : SizedBox.shrink(),
-              ),
+              if (image2 != "-1")
+                Align(
+                  alignment: const Alignment(0.7, -0.9),
+                  child: image2.isNotEmpty
+                      ? Image.asset(
+                          image2,
+                          height: 20,
+                          width: 200,
+                          fit: BoxFit.cover,
+                        )
+                      : SizedBox.shrink(),
+                ),
               Align(
                 alignment: const Alignment(0.0, -0.9),
                 child: Container(
