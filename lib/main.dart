@@ -174,7 +174,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
         question = "";
       }
       for (Node next in nodes) {
-        if (next.nodeID == option2) {
+        if (next.nodeID == option3) {
           nodeID = next.nodeID;
           option1 = next.option1;
           option2 = next.option2;
