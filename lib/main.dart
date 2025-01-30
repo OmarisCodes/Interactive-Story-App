@@ -199,7 +199,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff3e87c5),
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       body: Align(
         alignment: Alignment.center,
         child: SizedBox(
@@ -209,12 +209,12 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
             alignment: Alignment.topLeft,
             children: [
               Align(
-                alignment: const Alignment(0.0, 0.5),
+                alignment: const Alignment(0.0, 0.0),
                 child: image1.isNotEmpty
                     ? Image.asset(
                         image1,
                         height: MediaQuery.of(context).size.height,
-                        width: MediaQuery.of(context).size.width,
+                        width: 1400,
                         fit: BoxFit.cover,
                       )
                     : SizedBox.shrink(),
@@ -245,7 +245,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                     style: const TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 34,
+                      fontSize: 24,
                       color: Color(0xffffffff),
                     ),
                   ),
@@ -267,7 +267,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                       style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,
-                        fontSize: 34,
+                        fontSize: 24,
                         color: Color(0xffffffff),
                       ),
                     ),
@@ -286,8 +286,8 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                       borderRadius: BorderRadius.zero,
                     ),
                     textColor: const Color(0xfffffdfd),
-                    height: 100,
-                    minWidth: 200,
+                    height: 80,
+                    minWidth: 160,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Text(prompt1,
@@ -300,7 +300,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                 ),
               if (option2 != -1)
                 Align(
-                  alignment: const Alignment(0.8, 0.95),
+                  alignment: const Alignment(0.5, 0.95),
                   child: MaterialButton(
                     onPressed: () {
                       option2Handler();
@@ -311,8 +311,8 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                       borderRadius: BorderRadius.zero,
                     ),
                     textColor: const Color(0xfffffdfd),
-                    height: 100,
-                    minWidth: 200,
+                    height: 80,
+                    minWidth: 160,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Text(prompt2,
@@ -325,7 +325,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                 ),
               if (option3 != -1)
                 Align(
-                  alignment: const Alignment(-0.8, 0.95),
+                  alignment: const Alignment(-0.5, 0.95),
                   child: MaterialButton(
                     onPressed: () {
                       option3Handler();
@@ -336,8 +336,8 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                       borderRadius: BorderRadius.zero,
                     ),
                     textColor: const Color(0xfffffdfd),
-                    height: 100,
-                    minWidth: 200,
+                    height: 80,
+                    minWidth: 160,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Text(prompt3,
@@ -355,28 +355,3 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
     );
   }
 }
-
-                // Align(
-                //   alignment: const Alignment(0.5, 0.9),
-                //   child: MaterialButton(
-                //     onPressed: () {
-                //       option2Handler();
-                //     },
-                //     color: const Color(0xff3a21d9),
-                //     elevation: 0,
-                //     shape: const RoundedRectangleBorder(
-                //       borderRadius: BorderRadius.zero,
-                //     ),
-                //     textColor: const Color(0xfffffdfd),
-                //     height: 100,
-                //     minWidth: 200,
-                //     padding:
-                //         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                //     child: Text(prompt2,
-                //         style: const TextStyle(
-                //           fontSize: 20,
-                //           fontWeight: FontWeight.w400,
-                //           fontStyle: FontStyle.normal,
-                //         )),
-                //   ),
-                // ),

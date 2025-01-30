@@ -1,12 +1,12 @@
 1,2,2,2,Your dog ran into the forest, What will you do?,Run after it!,Do nothing?,Tester,1,0,dog_running.jpeg,border.jpeg,lightning.wav
-2,3,-1,3,You Have entered the maze of secrets!,-1,Continue,-1,Tester,1,0,dog_running.jpeg,border.jpeg,lightning.wav
-3,1,4,2,You Have Reached A Crossroads,Will you go left or right?,Left,Right,Tester,1,0,dog_running.jpeg,border.jpeg,lightning.wav
-4,5,-1,2,You Chose To Venture Right - You avoided certain demise!,-,Continue,-1,Tester,1,0,dog_running.jpeg,border.jpeg,lightning.wav
-5,6,1, 2,You Hear the roaring of a beast! - The minotaur has appeared,What Will You Do?,Fight,Run,Tester,0,1,dog_running.jpeg,border.jpeg,lightning.wav
-6,7,-1,2, You defeated the minotaur!,-,Continue,-1,Tester,-1,-1,dog_running.jpeg,border.jpeg,lightning.wav
-7,8,-1,2, What's this? A mermaid!,What Will you do?,Befriend,Attack,Tester,0,1,dog_running.jpeg,border.jpeg,lightning.wav
-8,9,-1,2,You Befriended the mermaid!,-,Continue,-1,Tester,-1,-1,dog_running.jpeg,border.jpeg,lightning.wav
-9,10,-1,2, The sun is setting soon you sleep to replenish your health,-,Continue,-1,Tester,-1,-1,dog_running.jpeg,border.jpeg,lightning.wav
-10,11,-1,2, You Wake Up To A Scorching Heat - You've encountered the Phoenix!,What will you do,Fight,Run,Tester,-1,-1,dog_running.jpeg,border.jpeg,lightning.wav
-11,12,-1,2, You defeated the Phoenix!,-,Continue,-1,Tester,-1,-1,dog_running.jpeg,border.jpeg,lightning.wav
-12,13,-1, 2, You've reached the end of the maze!,-,End,-1,Tester,-1,-1,dog_running.jpeg,border.jpeg,lightning.wav
+2,3,-1,3,You Have entered the maze of secrets!,-1,Continue,-1,Tester,1,0,storm.jpeg,border.jpeg,lightning.wav
+3,1,4,2,You Have Reached A Crossroads,Will you go left or right?,Left,Right,Tester,1,0,crossroads.jpeg,border.jpeg,lightning.wav
+4,5,-1,2,You Chose To Venture Right - You avoided certain demise!,-,Continue,-1,Tester,1,0,crossroads.jpeg,border.jpeg,lightning.wav
+5,6,1, 2,You Hear the roaring of a beast! - The minotaur has appeared,What Will You Do?,Fight,Run,Tester,0,1,minotaur.jpeg,border.jpeg,lightning.wav
+6,7,-1,2, You defeated the minotaur!,-,Continue,-1,Tester,-1,-1,minotaur_defeated.jpeg,border.jpeg,lightning.wav
+7,8,-1,2, What's this? A mermaid!,What Will you do?,Befriend,Attack,Tester,0,1,mermaid.jpeg,border.jpeg,lightning.wav
+8,9,-1,2,You Befriended the mermaid!,-,Continue,-1,Tester,-1,-1,mermaid.jpeg,border.jpeg,lightning.wav
+9,10,-1,2, The sun is setting soon you sleep to replenish your health,-,Continue,-1,Tester,-1,-1,sleep.jpeg,border.jpeg,lightning.wav
+10,11,-1,2, You Wake Up To A Scorching Heat - You've encountered the Phoenix!,What will you do,Fight,Run,Tester,-1,-1,phoenix.jpeg,border.jpeg,lightning.wav
+11,12,-1,2, You defeated the Phoenix!,-,Continue,-1,Tester,-1,-1,phoenix_defeated.jpeg,border.jpeg,lightning.wav
+12,13,-1, 2, You've reached the end of the maze!,-,End,-1,Tester,-1,-1,finale.jpeg,border.jpeg,lightning.wav
