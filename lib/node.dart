@@ -8,7 +8,8 @@ class Node {
   String prompt2;
   int score1;
   int score2;
+  String image;
 
   Node(this.nodeID, this.option1, this.option2, this.description, this.question,
-      this.prompt1, this.prompt2, this.score1, this.score2);
+      this.prompt1, this.prompt2, this.score1, this.score2, this.image);
 }

@@ -26,9 +26,10 @@ void main() async {
     String prompt2 = columns[6];
     int score1 = int.parse(columns[7]);
     int score2 = int.parse(columns[8]);
+    String image = columns[9];
 
     Node myNode = Node(nodeID, option1, option2, description, question, prompt1,
-        prompt2, score1, score2);
+        prompt2, score1, score2, image);
     nodes.add(myNode);
   }
 
@@ -58,6 +59,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
   String prompt2 = "";
   late int score1;
   late int score2;
+  String image = "";
 
   @override
   void initState() {
@@ -79,6 +81,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
           prompt2 = current.prompt2;
           score1 = current.score1;
           score2 = current.score2;
+          image = current.image;
         }
       });
     });
@@ -101,6 +104,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
           prompt2 = next.prompt2;
           score1 = next.score1;
           score2 = next.score2;
+          image = next.image;
           break;
         }
       }
@@ -124,6 +128,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
           prompt2 = next.prompt2;
           score1 = next.score1;
           score2 = next.score2;
+          image = next.image;
           break;
         }
       }
@@ -142,6 +147,17 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
           child: Stack(
             alignment: Alignment.topLeft,
             children: [
+              Align(
+                alignment: const Alignment(0.0, 0.5),
+                child: image.isNotEmpty
+                    ? Image.asset(
+                        image,
+                        height: 1200,
+                        width: 1200,
+                        fit: BoxFit.cover,
+                      )
+                    : SizedBox.shrink(),
+              ),
               Align(
                 alignment: const Alignment(0.0, -0.9),
                 child: Text(
