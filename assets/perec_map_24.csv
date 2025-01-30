@@ -3,8 +3,8 @@
 3,-1,4,12,You Have Reached A Crossroads,Will you go left or right?,-1,Right,Left,1,0,crossroads.jpeg,-1,lightning.wav
 4,5,-1,-1,You Chose To Venture Right - You avoided certain demise!,-1,Continue,-1,Tester,1,0,crossroads.jpeg,-1,lightning.wav
 5,16,13, 14,You Hear the roaring of a beast! - The minotaur has appeared,What Will You Do?,Fight,Run,Befriend,0,1,minotaur.jpeg,first_health.png,lightning.wav
-6,7,-1,2, You defeated the minotaur!,-,Continue,-1,Tester,-1,-1,minotaur_defeated.jpeg,fifth_health.png,lightning.wav
-7,8,-1,2, What's this? A mermaid!,What Will you do?,Befriend,Attack,Tester,0,1,mermaid.jpeg,border.jpeg,lightning.wav
+6,20,-1,2, You defeated the minotaur!,-,Continue,-1,-1,-1,-1,minotaur_defeated.jpeg,fifth_health.png,lightning.wav
+7,8,19,21, What's this? A mermaid!,What Will you do?,Befriend,Attack,Run,0,1,mermaid.jpeg,border.jpeg,lightning.wav
 8,9,-1,2,You Befriended the mermaid!,-,Continue,-1,Tester,-1,-1,mermaid.jpeg,border.jpeg,lightning.wav
 9,10,-1,2, The sun is setting soon you sleep to replenish your health,-,Continue,-1,Tester,-1,-1,sleep.jpeg,border.jpeg,lightning.wav
 10,11,-1,2, You Wake Up To A Scorching Heat - You've encountered the Phoenix!,What will you do,Fight,Run,Tester,-1,-1,phoenix.jpeg,border.jpeg,lightning.wav
@@ -16,4 +16,7 @@
 16,17,13,14,Looks Like you done some damage to it!,What Will you do?,Fight!,Run,Befriend,-1,-1,minotaur.jpeg,second_health.jpg,lightning.wav
 17,18,13,14,Looks Like you done some damage to it!,What Will you do?,Fight!,Run,Befriend,-1,-1,minotaur.jpeg,third_health.jpg,lightning.wav
 18,6,13,14,Looks Like you done some damage to it!,What Will you do?,Fight!,Run,Befriend,-1,-1,minotaur.jpeg,fourth_health.png,lightning.wav
-19,6,13,14,Congrats!,-1,Continue,-1,-1,-1,-1,black_screen.jpeg,fifth_health.png,lightning.wav
+19,1,-1,-1,You Disturbed the peace of the mermaid! - It Drowns you,-1,Retry!,-1,-1,-1,-1,black_screen.jpeg,fifth_health.png,lightning.wav
+20,-1,21,7,You Have reached another set of crossroads, What will you do?,-1,Right,Left,-1,-1,second_crossroads.jpeg,-1,lightning.wav
+21,9,-1,-1,The Mermaid Allows you to run away! It Meant no harm to you,-1,Continue,-1,-1,-1,-1,black_screen.jpeg,-1,lightning.wav
+22,6,13,14,Congrats!,-1,Continue,-1,-1,-1,-1,black_screen.jpeg,fifth_health.png,lightning.wav
