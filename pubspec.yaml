@@ -11,12 +11,16 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   audioplayers: ^0.20.1
+  hive: ^2.0.4
+  hive_flutter: ^1.1.0
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  hive_generator: ^1.1.1
+  build_runner: ^2.0.3
 
 
 flutter:

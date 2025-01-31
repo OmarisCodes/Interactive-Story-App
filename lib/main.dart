@@ -3,11 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'node.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 
-List<Node> nodes = [];
+late Box<Node> box;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(NodeAdapter());
+  box = await Hive.openBox<Node>('perec_map_24.csv');
 
   //load data
   String file = "perec_map_24.csv";
@@ -17,26 +22,27 @@ void main() async {
   List<String> rows = csvData.split("\r\n");
 
   for (String row in rows) {
-    List<String> columns = row.split(",");
+    List<String> itemInRow = row.split(",");
 
-    int nodeID = int.parse(columns[0]);
-    int option1 = int.parse(columns[1]);
-    int option2 = int.parse(columns[2]);
-    int option3 = int.parse(columns[3]);
-    String description = columns[4];
-    String question = columns[5];
-    String prompt1 = columns[6];
-    String prompt2 = columns[7];
-    String prompt3 = columns[8];
-    int score1 = int.parse(columns[9]);
-    String health = columns[10];
-    String image1 = columns[11];
-    String image2 = columns[12];
-    String audioUrl = columns[13];
+    Node node = Node(
+      int.parse(itemInRow[0]),
+      int.parse(itemInRow[1]),
+      int.parse(itemInRow[2]),
+      int.parse(itemInRow[3]),
+      itemInRow[4],
+      itemInRow[5],
+      itemInRow[6],
+      itemInRow[7],
+      itemInRow[8],
+      int.parse(itemInRow[9]),
+      itemInRow[10],
+      itemInRow[11],
+      itemInRow[12],
+      itemInRow[13],
+    );
 
-    Node myNode = Node(nodeID, option1, option2, option3, description, question,
-        prompt1, prompt2, prompt3, score1, health, image1, image2, audioUrl);
-    nodes.add(myNode);
+    int key = int.parse(itemInRow[0]);
+    box.put(key, node);
   }
 
   runApp(
@@ -56,13 +62,6 @@ class MyFlutterFramework extends StatefulWidget {
 }
 
 class MyFlutterInterface extends State<MyFlutterFramework> {
-  playAudio() {
-    if (audioUrl.isNotEmpty) {
-      String localFilePath = 'assets/$audioUrl';
-      audioPlayer.play(localFilePath, isLocal: true);
-    }
-  }
-
   final audioPlayer = AudioPlayer();
   late int nodeID;
   late int option1;
@@ -79,16 +78,19 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
   String image2 = "";
   String audioUrl = "";
 
+  playAudio() {
+    if (audioUrl.isNotEmpty) {
+      String localFilePath = 'assets/$audioUrl';
+      audioPlayer.play(localFilePath, isLocal: true);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
-    //Place code here to initilise server objects
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
-        //Place Cide here you want to execute immediately after
-        //The Ui is buikt
-        Node current = nodes.first;
+        Node? current = box.get(1);
         if (current != null) {
           nodeID = current.nodeID;
           option1 = current.option1;
@@ -115,25 +117,23 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
         description = "NAVIGATION ENDED!";
         question = "";
       }
-      for (Node next in nodes) {
-        if (next.nodeID == option1) {
-          nodeID = next.nodeID;
-          option1 = next.option1;
-          option2 = next.option2;
-          option3 = next.option3;
-          description = next.description;
-          question = next.question;
-          prompt1 = next.prompt1;
-          prompt2 = next.prompt2;
-          prompt3 = next.prompt3;
-          score1 = next.score1;
-          health = next.health;
-          image1 = next.image1;
-          image2 = next.image2;
-          audioUrl = next.audioUrl;
-          playAudio();
-          break;
-        }
+      Node? nextNode = box.get(option1);
+      if (nextNode != null) {
+        nodeID = nextNode.nodeID;
+        option1 = nextNode.option1;
+        option2 = nextNode.option2;
+        option3 = nextNode.option3;
+        description = nextNode.description;
+        question = nextNode.question;
+        prompt1 = nextNode.prompt1;
+        prompt2 = nextNode.prompt2;
+        prompt3 = nextNode.prompt3;
+        score1 = nextNode.score1;
+        health = nextNode.health;
+        image1 = nextNode.image1;
+        image2 = nextNode.image2;
+        audioUrl = nextNode.audioUrl;
+        playAudio();
       }
     });
   }
@@ -144,25 +144,23 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
         description = "NAVIGATION ENDED!";
         question = "";
       }
-      for (Node next in nodes) {
-        if (next.nodeID == option2) {
-          nodeID = next.nodeID;
-          option1 = next.option1;
-          option2 = next.option2;
-          option3 = next.option3;
-          description = next.description;
-          question = next.question;
-          prompt1 = next.prompt1;
-          prompt2 = next.prompt2;
-          prompt3 = next.prompt3;
-          score1 = next.score1;
-          health = next.health;
-          image1 = next.image1;
-          image2 = next.image2;
-          audioUrl = next.audioUrl;
-          playAudio();
-          break;
-        }
+      Node? nextNode = box.get(option2);
+      if (nextNode != null) {
+        nodeID = nextNode.nodeID;
+        option1 = nextNode.option1;
+        option2 = nextNode.option2;
+        option3 = nextNode.option3;
+        description = nextNode.description;
+        question = nextNode.question;
+        prompt1 = nextNode.prompt1;
+        prompt2 = nextNode.prompt2;
+        prompt3 = nextNode.prompt3;
+        score1 = nextNode.score1;
+        health = nextNode.health;
+        image1 = nextNode.image1;
+        image2 = nextNode.image2;
+        audioUrl = nextNode.audioUrl;
+        playAudio();
       }
     });
   }
@@ -173,25 +171,23 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
         description = "NAVIGATION ENDED!";
         question = "";
       }
-      for (Node next in nodes) {
-        if (next.nodeID == option3) {
-          nodeID = next.nodeID;
-          option1 = next.option1;
-          option2 = next.option2;
-          option3 = next.option3;
-          description = next.description;
-          question = next.question;
-          prompt1 = next.prompt1;
-          prompt2 = next.prompt2;
-          prompt3 = next.prompt3;
-          score1 = next.score1;
-          health = next.health;
-          image1 = next.image1;
-          image2 = next.image2;
-          audioUrl = next.audioUrl;
-          playAudio();
-          break;
-        }
+      Node? nextNode = box.get(option3);
+      if (nextNode != null) {
+        nodeID = nextNode.nodeID;
+        option1 = nextNode.option1;
+        option2 = nextNode.option2;
+        option3 = nextNode.option3;
+        description = nextNode.description;
+        question = nextNode.question;
+        prompt1 = nextNode.prompt1;
+        prompt2 = nextNode.prompt2;
+        prompt3 = nextNode.prompt3;
+        score1 = nextNode.score1;
+        health = nextNode.health;
+        image1 = nextNode.image1;
+        image2 = nextNode.image2;
+        audioUrl = nextNode.audioUrl;
+        playAudio();
       }
     });
   }
