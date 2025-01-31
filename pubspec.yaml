@@ -46,5 +46,10 @@ assets:
 - assets/second_health.jpg
 - assets/wizard.jpeg
 - assets/black_screen.jpeg
- 
-
+- assets/boss_defeat.wav
+- assets/boss_fight.wav
+- assets/creepy_music.mp3
+- assets/mermaid.flac
+- assets/defeat.wav
+- assets/wizard_defeated.jpeg
+- assets/wizard_release.jpeg

@@ -9,7 +9,7 @@ class Node {
   String prompt2;
   String prompt3;
   int score1;
-  int score2;
+  String health;
   String image1;
   String image2;
   String audioUrl;
@@ -25,7 +25,7 @@ class Node {
       this.prompt2,
       this.prompt3,
       this.score1,
-      this.score2,
+      this.health,
       this.image1,
       this.image2,
       this.audioUrl);

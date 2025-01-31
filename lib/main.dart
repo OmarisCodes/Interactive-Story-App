@@ -29,13 +29,13 @@ void main() async {
     String prompt2 = columns[7];
     String prompt3 = columns[8];
     int score1 = int.parse(columns[9]);
-    int score2 = int.parse(columns[10]);
+    String health = columns[10];
     String image1 = columns[11];
     String image2 = columns[12];
     String audioUrl = columns[13];
 
     Node myNode = Node(nodeID, option1, option2, option3, description, question,
-        prompt1, prompt2, prompt3, score1, score2, image1, image2, audioUrl);
+        prompt1, prompt2, prompt3, score1, health, image1, image2, audioUrl);
     nodes.add(myNode);
   }
 
@@ -74,7 +74,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
   String prompt2 = "";
   String prompt3 = "";
   late int score1;
-  late int score2;
+  String health = "";
   String image1 = "";
   String image2 = "";
   String audioUrl = "";
@@ -100,7 +100,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
           prompt2 = current.prompt2;
           prompt3 = current.prompt3;
           score1 = current.score1;
-          score2 = current.score2;
+          health = current.health;
           image1 = current.image1;
           image2 = current.image2;
           audioUrl = current.audioUrl;
@@ -127,7 +127,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
           prompt2 = next.prompt2;
           prompt3 = next.prompt3;
           score1 = next.score1;
-          score2 = next.score2;
+          health = next.health;
           image1 = next.image1;
           image2 = next.image2;
           audioUrl = next.audioUrl;
@@ -156,7 +156,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
           prompt2 = next.prompt2;
           prompt3 = next.prompt3;
           score1 = next.score1;
-          score2 = next.score2;
+          health = next.health;
           image1 = next.image1;
           image2 = next.image2;
           audioUrl = next.audioUrl;
@@ -185,7 +185,7 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
           prompt2 = next.prompt2;
           prompt3 = next.prompt3;
           score1 = next.score1;
-          score2 = next.score2;
+          health = next.health;
           image1 = next.image1;
           image2 = next.image2;
           audioUrl = next.audioUrl;
@@ -221,12 +221,12 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
               ),
               if (image2 != "-1")
                 Align(
-                  alignment: const Alignment(0.7, -0.9),
+                  alignment: const Alignment(0.0, 0.7),
                   child: image2.isNotEmpty
                       ? Image.asset(
                           image2,
-                          height: 20,
-                          width: 200,
+                          height: 40,
+                          width: 400,
                           fit: BoxFit.cover,
                         )
                       : SizedBox.shrink(),
@@ -271,6 +271,21 @@ class MyFlutterInterface extends State<MyFlutterFramework> {
                         fontSize: 24,
                         color: Color(0xffffffff),
                       ),
+                    ),
+                  ),
+                ),
+              if (health != "-1")
+                Align(
+                  alignment: const Alignment(0.0, 0.7),
+                  child: Text(
+                    health,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.clip,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 24,
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
