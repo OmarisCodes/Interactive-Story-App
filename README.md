@@ -1,6 +1,6 @@
 Interactive Story Application:
 
-A brancing adventure game I created using Flutter and Dart. The story follows a character whose dog has entered a forst. The player has to make choices, encounter enemies and find their dog to complete the game.
+A branching adventure game I created using Flutter and Dart. The story follows a character whose dog has entered a forest. The player has to make choices, encounter enemies and find their dog to complete the game.
 
 Screenshots:
 ## 1. Starting the adventure
@@ -16,9 +16,9 @@ Screenshots:
 
 Features:
 - Make choices that affect how the story progresses
-- Choose to befiend, fight or run from enemies
+- Choose to befriend, fight or run from enemies
 - Health indicators during encounters
-- Story events withd ifferetn images and audio
+- Story events with different images and audio
 - Story data loaded from CSV files
 
 Technologies Used:
